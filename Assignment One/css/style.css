@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+ }
+ body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+
+ }
+ .container{
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    background: #fff;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+
+
+ }
+ .container .section{
+    position: relative;
+   
+    background: #222;
+   
+    padding: 40px;
+
+ }
+ .profile-text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:20px ;
+    
+}
+.profile-text .img-box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.profile-text .img-box img{
+    position : absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile-text h2{
+  color : #fff;
+    font-size: 1.5em;
+    margin-top:20px;
+    text-transform: uppercase;
+    text-align:center;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+.profile-text h2 span{
+    font-size: 0.8em;
+    color: #777;
+    font-weight: 300;
+    text-transform: capitalize;
+    
+}
+.profile-text hr{
+    margin-top: 20px;
+    
+}
+.contact-info{
+    padding-top:40px ;
+}
+
+.title{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.contact-info ul{
+    position: relative;
+}
+.contact-info ul li{
+    position: relative;
+    list-style: none;
+    margin: 10px 0;
+    cursor: pointer;
+    
+}
+.contact-info i{
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+.contact-info i:hover{
+    color: yellow;}
+.education{
+   
+    margin-top: 50px;
+}
+
+.education li{
+    position: relative;
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 26px;
+    cursor: pointer;
+    
+}
+ 
+ .container .rest{
+    position: relative;
+   
+    background: #fff;
+   
+    padding: 20px;
+
+ }
+ .about {
+    margin-bottom: 50px;
+    color:#222;
+
+ }
+ .about:last-child{
+    margin-bottom: 0;
+ }
+ .about li{
+    position: relative;
+    list-style: none;
+    margin: 10px 0;
+    cursor: pointer;
+ }
+ .title2{
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;}
+.projects{
+    margin-bottom: 50px;
+    color:#222;
+}  
+.projects li{
+    position: relative;
+    
+    margin-top:10px;
+    margin-bottom: 26px;
+    margin-left: 30px;
+    cursor: pointer;
+}  
+h2,
+
+h2.title2 {
+  transition: all 0.3s ease; 
+  color: #333; 
+}
+
+
+h2:hover,
+h3:hover,
+h2.title2:hover {
+  font-size: 1.2em; 
+  color: #333; 
+}
