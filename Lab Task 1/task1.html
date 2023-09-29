@@ -14,136 +14,166 @@
         href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
         rel="stylesheet"
       />
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+   
+    <title>Ecom APP</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+
       <script
         src="https://kit.fontawesome.com/6e74c27e7e.js"
         crossorigin="anonymous"
       ></script>
     </head>
     <body>
-      <div>
-        <div class="title">
-          <div >
-            <h1>Muhammd Ayan</h1>
-            <hr />
-            <p>malikayan827@gmail.com</p>
+      <div class="contanier">
+        <nav>
+          <div class="logo">
+            <i class="fa-solid fa-store"></i>
+            <h1>E Commerce Store</h1>
           </div>
-          <div class="title-div-2">
-            <p>357/D Punjab Co-operative Housing</p>
-            <p>Society, Lahore, Pakistan</p>
-            <br />
-            <p>+92 323 332 1208</p>
-          </div>
-        </div>
-
-        <div class="education">
-          <h2><u>Education</u></h2>
-
-          <h3>COMSATS University Islamabad, Lahore</h3>
-          <p><i>Bachelor in Computer Science (in progress)</i></p>
-          <div style="position: relative; left: 80%;">
-            <p><i>2021-2025</i></p>
-          </div>
+  
           <ul>
-            <li>CGPA: 3.05</li>
+            <li class="active"><a href="#">home</a></li>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">shop</a></li>
+            <li><a href="#">contact</a></li>
+            <!-- <li><button class="btnLogin-popup" >login</button></li> -->
             <li>
-              Relevant Coursework: Data Sciences, Machine Learning , Databases
-              and Web Development.
+              <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>
           </ul>
-        </div>
-        <div class="workExp">
-          <h2><u>Work Experience</u></h2>
-
-          <h3>Ozeefy</h3>
-          <p><i>Front-end Web Development Internship</i></p>
-
-          <div style="position: relative; left: 80%;">
-            <p><b>Lahore</b></p>
-            <p><i>June 2022-August 2022</i></p>
-          </div>
-          <ul>
-            <li>
-              Worked as a Front end web developer and learnt HTML,CSS and
-              JavaScript.
-            </li>
-            <li>Made many templates for different websites.</li>
-            <li>
-              Proposed several simplifying and cost cutting frontend designs
-              that ended up being substantial to the company
-            </li>
-          </ul>
-        </div>
-        <div class="skills">
-          <h2><u>Skills</u></h2>
-          <div>
-            <h3>Programming Languages</h3>
-            <ul>
-              <li>Python</li>
-              <li>C++</li>
-              <li>Java</li>
-              <li>JavaScript</li>
-              <li>HTML</li>
-              <li>CSS</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Tools</h3>
-            <ul>
-              <li>Git</li>
-              <li>GitHub</li>
-              <li>Visual Studio Code</li>
-              <li>PyCharm</li>
-              <li>IntelliJ</li>
-              <li>Android Studio</li>
-            </ul>
-          </div>
-        </div>
-        <div class="Projects">
-          <h2><u>Projects</u></h2>
-          <div>
-            <h3>Web & Mobile App Development</h3>
-            <ul>
-              <li>Ecom Web-App (in progress)(MERN stack)</li>
-              <li>Ecom Mobile- App (in progress)(React native and firebase)</li>
-              <li>Website template (HTML/CSS)</li>
-            </ul>
-
-            <h3>Data Sciences</h3>
-            <ul>
-              <li>A Visual History Of Nobel Prize Winners (Python)</li>
-              <li>The Android app market of Google Play Store (Python)</li>
-              <li>What and Where are the world’s oldest businesses (Python)</li>
-              <li>Investigating Netflix movies and the guest stars (Python)</li>
-            </ul>
-
-            <h3>Databases</h3>
-            <ul>
-              <li>Shoe Store (SQL + C#)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="additionalInfo ">
-          <h3>Additional Information</h3>
-          
-            <p><b>Languages:</b> Fluent in English and Urdu.</p>
-            <p>
-              <b>Certifications:</b> Data scientist with python on Data Camp (in
-              progress).
-            </p>
-            <p>
-             <b> Social Links:</b>
-             <ul>
-              <li class="social-links"> <a href="https://www.linkedin.com/in/muhammad-ayan-b9643a211"
-                > <i class="fab fa-linkedin social-links"></i></a
-              ></li>
-            </p>
-            <li class="social-links">
-            <p>
-              <a href="https://github.com/malikayan827"> <i class="fab fa-GitHub social-links"></i></a>
-            </p></li>
-          </ul>
-        </div>
+        </nav>
       </div>
+      <div class="wrapper ">
+         <!-- <span class="close-btn">
+          <i class="fa-solid fa-times"></i>
+        </span> -->
+        <div class="form-box login">
+          <h2>
+            Login
+          </h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input type="email" 
+              required
+              placeholder="Enter your email" />
+              <label>Email</label>
+              </span>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fas fa-lock"></i>
+              </span>
+              <input type="password" 
+              required
+              placeholder="Enter your password" />
+              <label>Password</label>
+              </span>
+            </div>
+            <div class="remember-forget">
+              <label class="checkbox">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Remember me
+              </label>
+              <a href="#">Forgot password</a>
+              
+            </div>
+            <div>
+              <button class="btn" type="submit">Login</button>
+            </div>
+  
+            <div class="login-register">
+
+              <p>Don't have an account? 
+                <a href="#" class="register-link">Register</a></p>
+            </div>
+
+          </form>
+        </div>
+         <!-- reg form -->
+         <div class="form-box register">
+          <h2>Registration</h2>
+          <form id="registration-form" action="#">
+            <div class="input-box">
+              <span class="icon">
+                <i class="fas fa-user"></i>
+              </span>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                data-placeholder="Enter your Username"
+              />
+              <label id="username-error" class="error" for="username">Username</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                data-placeholder="Enter your email"
+              />
+              <label id="email-error" class="error" for="email">Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fas fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                data-placeholder="Enter your password"
+              />
+              <label id="password-error" class="error" for="password">Password</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fas fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                required
+                data-placeholder="Confirm your Password"
+              />
+              <label id="confirm-password-error" class="error" for="confirm-password">Confirm Password</label>
+            </div>
+            <div>
+              <button class="btn" type="submit">Register</button>
+            </div>
+            <div class="login-register">
+              <p>Already Registered? <a href="#" class="login-link">Sign In</a></p>
+            </div>
+          </form>
+        </div>
+        
+
+      </div>
+  
     </body>
+    <script src="script.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="jquery.js"></script>
   </html>
 </html>
