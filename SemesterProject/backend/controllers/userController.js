@@ -3,6 +3,7 @@ const sendToken = require("../utils/jwttoken");
 const ErrorHandler = require("../utils/errorhandler");
 const User=require('../models/userModel')
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const sendEmail=require('../utils/sendEmail');
 
 //register a user
 exports.registerUser = catchAsyncErrors( async(req, res, next) => {
@@ -68,8 +69,8 @@ catchAsyncErrors( async(req, res, next) => {
     try{
         await sendEmail({
             email:user.email,
-            subject:'ShopIT password recovery',
-            message
+            subject:'Ecommerce password recovery',
+            message,
         })
         res.status(200).json({
             success:true,
