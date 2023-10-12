@@ -1,5 +1,5 @@
 const catchAsyncErrors=require('./catchAsyncErrors');
-const ErrorHandler=require('../utils/errorHandler');
+const ErrorHandler=require('..//utils//errorhandler');
 const jwt=require('jsonwebtoken');
 const User=require('../models/userModel');
 exports.isAuthenticatedUsers=catchAsyncErrors(async(req,res,next)=>{
@@ -9,6 +9,7 @@ exports.isAuthenticatedUsers=catchAsyncErrors(async(req,res,next)=>{
     }
     const decodedData=jwt.verify(token,process.env.JWT_SECRET);
     req.user=await User.findById(decodedData.id);
+    console.log(req.user);
     next();
 })
 exports.authorizeRoles=(...roles)=>{
