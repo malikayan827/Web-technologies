@@ -3,6 +3,7 @@ const{registerUser, forgotPassword}=require('../controllers/userController');
 const{loginUser}=require('../controllers/userController');
 const{logoutUser}=require('../controllers/userController');
 const { registerSuccesFull } = require('../utils/otp');
+const {resetPassword}=require('../controllers/userController');
 const router=express.Router();
 
 router.route('/register').post(registerUser)
