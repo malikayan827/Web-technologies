@@ -5,6 +5,7 @@ const{logoutUser}=require('../controllers/userController');
 const { registerSuccesFull } = require('../utils/otp');
 const {resetPassword,getUserDetails}=require('../controllers/userController');
 const { isAuthenticatedUsers,authorizeRoles } = require('../middleware/auth');
+const { updatePassword } = require('../controllers/userController');
 const router=express.Router();
 
 
@@ -16,6 +17,7 @@ router.route('/password/forgot').post(forgotPassword)
 router.route('/password/reset/:token').put(resetPassword)
 router.route('/logout').get(logoutUser)
 router.route('/me').get(isAuthenticatedUsers,getUserDetails)
+router.route('/password/update').put(isAuthenticatedUsers,updatePassword)
 
 
 module.exports=router;
