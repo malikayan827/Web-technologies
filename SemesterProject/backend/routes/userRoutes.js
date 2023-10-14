@@ -1,5 +1,5 @@
 const express=require('express')
-const{registerUser, forgotPassword}=require('../controllers/userController');
+const{registerUser, forgotPassword, updateUserProfile}=require('../controllers/userController');
 const{loginUser}=require('../controllers/userController');
 const{logoutUser}=require('../controllers/userController');
 const { registerSuccesFull } = require('../utils/otp');
@@ -18,6 +18,7 @@ router.route('/password/reset/:token').put(resetPassword)
 router.route('/logout').get(logoutUser)
 router.route('/me').get(isAuthenticatedUsers,getUserDetails)
 router.route('/password/update').put(isAuthenticatedUsers,updatePassword)
+router.route('/me/update').put(isAuthenticatedUsers,updateUserProfile)
 
 
 module.exports=router;
