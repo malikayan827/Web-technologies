@@ -162,6 +162,27 @@ res.status(200).json({
    
 }
 )
+//get all users
+exports.getAllUsers=catchAsyncErrors(async (req, res, next) => {
+    const users=await User.find();
+    res.status(200).json({
+        success:true,
+        users
+    })
+}
+)
+//get single user details (admin)
+exports.getSingleUser=catchAsyncErrors(async (req, res, next) => {
+    const users=await User.findById(req.params.id);
+    if(!users){
+        return next(new ErrorHandler(`User not found with id: ${req.params.id}`))
+    }
+    res.status(200).json({
+        success:true,
+        users
+    })
+}
+)
 
 
 

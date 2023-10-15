@@ -5,15 +5,18 @@ const router = express.Router();
 router.route('/products')
 .get(
     getAllproducts);
-router.route('/products/new')
+router.route('/admin/products/new')
 .post(isAuthenticatedUsers,
     authorizeRoles('admin'),createProduct);
 router
-.route('/products/:id')
+.route('/admin/products/:id')
 .put(isAuthenticatedUsers,
     authorizeRoles('admin'),updateProduct)
 .delete(isAuthenticatedUsers,
     authorizeRoles('admin'),deleteProduct)
-.get(getProductDetails);
+;
+
+router
+.route('/products/:id').get(getProductDetails)
 
 module.exports = router;
