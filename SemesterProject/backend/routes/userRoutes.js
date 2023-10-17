@@ -1,5 +1,5 @@
 const express=require('express')
-const{registerUser, forgotPassword, updateUserProfile}=require('../controllers/userController');
+const{registerUser, forgotPassword, updateUserProfile, updateUserRole, deleteUser}=require('../controllers/userController');
 const{loginUser}=require('../controllers/userController');
 const{logoutUser}=require('../controllers/userController');
 const { registerSuccesFull } = require('../utils/otp');
@@ -20,7 +20,13 @@ router.route('/me').get(isAuthenticatedUsers,getUserDetails)
 router.route('/password/update').put(isAuthenticatedUsers,updatePassword)
 router.route('/me/update').put(isAuthenticatedUsers,updateUserProfile)
 router.route('/admin/users').get(isAuthenticatedUsers,authorizeRoles('admin'),getAllUsers)
-router.route('/admin/user/:id').get(isAuthenticatedUsers,authorizeRoles('admin'),getSingleUser)  
+router.route('/admin/user/:id')
+  .get(isAuthenticatedUsers, authorizeRoles('admin'), getSingleUser)
+  .put(isAuthenticatedUsers, authorizeRoles('admin'), updateUserRole)
+  .delete(isAuthenticatedUsers, authorizeRoles('admin'), deleteUser);
+
+
+
 
 
 module.exports=router;
