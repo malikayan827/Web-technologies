@@ -113,13 +113,7 @@ nav button:hover{
         flex: 1;
       color: #145F31;
   }
-  .weather-box {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    border-collapse: collapse;
-    border: 1px solid black;
-  }
+  
   
   footer {
     background: #212529;
