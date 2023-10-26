@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+   
+    color: white;
+}
+nav {
+    background-color: #007bff;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 70px;
+    
+
+  }
+  
+  nav ul {
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+    left: 180px;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 10px;
+  }
+nav button{
+    background-color: #ffc107;
+    border-radius: 10%;
+    color: white;
+    border: none;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+}
+nav button:hover{
+    background-color: #f0f411ee;
+    color: white;
+}
+.topbar{
+    background: #f7f7f7;
+    color: black;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 10px;
+
+}
+.topbar a{
+    color:#007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 10px;
+
+}
+.topbar-right {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    
+    color: black;
+  }
+
+  .logo-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .logo-div img:first-child {
+    width: 100px;
+    margin-right: 40px;
+    float: left;
+    right: 40px;
+  }
+  
+  .logo-div img:last-child {
+    width: 100px;
+    margin-left: 40px;
+    float: right;
+    right: 40px;
+  }
+  
+  .logo-text {
+    font-size: 10px;
+        flex: 1;
+      color: #145F31;
+  }
+  .weather-box {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  
+  footer {
+    background: #212529;
+    
+   
+    
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  footer div {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  footer h3 {
+    margin-bottom: 10px;
+  }
+  
+  footer li {
+    list-style: none;
+    margin-bottom: 5px;
+  }
