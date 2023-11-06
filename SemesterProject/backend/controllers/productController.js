@@ -158,13 +158,13 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
   let avg=0
   
  reviews.forEach(rev=>{
-    avg=avg+rev.rating
+    avg +=rev.rating
 
   }
     )
  const ratings =avg/reviews.length;
 const numOfReviews=reviews.length
-await product.findByIdAndUpdate(req.query.productId,{
+await Product.findByIdAndUpdate(req.query.productId,{
   reviews,
   ratings,
   numOfReviews
