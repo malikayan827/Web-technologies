@@ -1,0 +1,20 @@
+.productImg{
+    width: 100%;
+}
+.productCard{
+    width:14vmax;
+    display:flex;
+    flex-direction:column;
+    text-decoration: none;
+    color: black;
+    margin: 2vmax;
+
+}
+.productCard>img{
+    width:14vmax;
+}
+.productCard>div{
+    margin:0.5vmax;
+    display:flex;
+    font:300 0.7max "Roboto"
+}

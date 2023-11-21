@@ -1,7 +1,15 @@
 import React, { Fragment } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./home.css";
-import Product from "../Product/Product.js";
+import Product from "./Product/Product.js";
+import product1 from "../../images/product1.jpg";
+const product={
+  id:1,
+  name:"Shirt",
+  price:1000,
+  description:"This is a shirt",
+  image:product1
+}
 const Home = () => {
   return (
     <Fragment>
