@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './product.css';
+
 import ReactStars from 'react-rating-stars-component';
 
 const Product = ({ product }) => {
@@ -21,7 +22,7 @@ const Product = ({ product }) => {
       <img src={product.image} alt={product.name} className='productImg' />
       <p>{product.name}</p>
       <div>
-        <ReactStars {...options} />
+        <ReactStars classNames='stars' {...options} />
         <span>(256 Reviews)</span>
       </div>
       <span>{product.price}</span>

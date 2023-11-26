@@ -23,6 +23,13 @@ const Home = () => {
       <h2 className="homeHeading">FEATURED PRODUCTS</h2>
       <div className="container" id="container">
       <Product product={product} />
+      <Product product={product} />
+      <Product product={product} />
+      <Product product={product} />
+      <Product product={product} />
+      <Product product={product} />
+      <Product product={product} />
+
 
       </div>
     </Fragment>
