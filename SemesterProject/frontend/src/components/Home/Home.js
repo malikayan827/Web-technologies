@@ -3,6 +3,7 @@ import { CgMouse } from "react-icons/cg";
 import "./home.css";
 import Product from "./Product/Product.js";
 import product1 from "../../images/product1.jpg";
+
 const product={
   id:1,
   name:"Shirt",
@@ -13,6 +14,7 @@ const product={
 const Home = () => {
   return (
     <Fragment>
+      
       <div className="banner">
         <p>Welcome to Ecommerce</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>
