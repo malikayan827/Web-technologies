@@ -1,42 +1,31 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
+import { FaSearch } from "react-icons/fa"; 
 import logo from "..//..//..//images//logo.png";
 
-const options = {
-  burgerColorHover: "black",
-  logo,
-  logoWidth: "20vmax",
-  navColor1: "rgba(255, 255, 255, 0.8)",
-  logoHoverSize: "10px",
-  logoHoverColor: "black",
-  link1Text: "Home",
-  link2Text: "Products",
-  link3Text: "Contact",
-  link4Text: "About",
-  link1Url: "/",
-  link2Url: "/products",
-  link3Url: "/contact",
-  link4Url: "/about",
-  link1Size: "1.3vmax",
-  link1Color: "black",
-  nav1justifyContent: "flex-end",
-  nav2justifyContent: "flex-end",
-  nav3justifyContent: "flex-start",
-  nav4justifyContent: "flex-start",
-  link1ColorHover: "black",
-  link1Margin: "1vmax",
-  profileIconUrl: "/login",
-  profileIconColor: "black",
-  searchIconColor: "black",
-  cartIconColor: "black",
-  profileIconColorHover: "#eb4034",
-  searchIconColorHover: "#eb4034",
-  cartIconColorHover: "#eb4034",
-  cartIconMargin: "1vmax",
-};
+import "./Header.css";
 
 const Header = () => {
-  return <ReactNavbar {...options} />
+  return (
+    <nav>
+      <ul>
+        <li className="logo">Ecommerce</li>
+        <li className="btn"><span className="fas fa-bars"></span></li>
+        <div className="items">
+          <li><a className="items" href="#">Home</a></li>
+          <li><a className="items" href="#">About</a></li>
+          <li><a className="items" href="#">Services</a></li>
+          <li><a className="items" href="#">Contact</a></li>
+        </div>
+        <li className="search-icon">
+          <input type="search" placeholder="Search" />
+          <label className="icon">
+            <FaSearch /> 
+          </label>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Header;

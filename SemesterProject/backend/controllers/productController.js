@@ -27,6 +27,7 @@ const apifeature=new Apifeatures(Product.find(), req.query)
   res.status(200).json({
     status: "success",
     products,
+    productCount,
   });
 })
 //update product admin
@@ -78,9 +79,9 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "Product deleted successfully",
-    }); // Respond with a 204 status (No Content) for successful deletion.
+    }); 
   } catch (error) {
-    next(error); // Pass any errors to the error handling middleware.
+    next(error); 
   }
 });
 //get single product details

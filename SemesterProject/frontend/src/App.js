@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer/Footer';
 import LogInSignUp from './components/user/loginsignup';
 import Home from "./components/Home/Home.js"
 
+
 function App() {
   React.useEffect(() => {
     webfont.load({
@@ -18,12 +19,13 @@ function App() {
 
   return (
     <Router>
+      
+
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Add more routes as needed */}
       </Routes>
-
-      <Header />
       <Footer />
     </Router>
   );
