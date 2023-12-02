@@ -20,7 +20,7 @@
     margin-bottom: 5vmax;
     padding: 1vmax ;
     cursor : pointer;
-    border: 1px solid black ;
+    
     border-radius: 10%;
     border: 3px solid #000;
     background-color: white;
@@ -36,17 +36,7 @@
     transition: all 0.5s;
     width: 200px;
 }
-.banner::after {
-    content: "";
-    width: 100vw;
-    height: 100vmin;
-    background-color: #ffffff;
-    position: absolute;
-    top: 0%;
-    left: 0;
-    clip-path: polygon(100% 68%, 0 100%, 100% 100%);
-    max-width: 100%;
-  }
+
 .homeHeading{
     text-align: center;
   font-family: Roboto;

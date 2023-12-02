@@ -1,26 +1,53 @@
-import React from "react";
-import { ReactNavbar } from "overlay-navbar";
-import { FaSearch } from "react-icons/fa"; 
-import logo from "..//..//..//images//logo.png";
-
+import React, { useState } from "react";
+import { FaSearch, FaBars } from "react-icons/fa";
+import { Squash as Hamburger } from "hamburger-react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  const handleToggleNav = () => {
+    setOpen(!isOpen);
+  };
+
+  const handleCloseNav = () => {
+    setOpen(false);
+  };
+
   return (
     <nav>
-      <ul>
+      <ul className={`navbar  ${isOpen ? "open" : ""}`}>
         <li className="logo">Ecommerce</li>
-        <li className="btn"><span className="fas fa-bars"></span></li>
-        <div className="items">
-          <li><a className="items" href="#">Home</a></li>
-          <li><a className="items" href="#">About</a></li>
-          <li><a className="items" href="#">Services</a></li>
-          <li><a className="items" href="#">Contact</a></li>
+        <li className="btn" onClick={handleToggleNav}>
+          <Hamburger toggled={isOpen} toggle={setOpen} />
+        </li>
+        <div className={`items  ${isOpen ? "open items2" : ""}`}>
+          <li>
+            <Link className="items" href="#" onClick={handleCloseNav}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="items" href="#" onClick={handleCloseNav}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className="items" href="#" onClick={handleCloseNav}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link className="items" href="#" onClick={handleCloseNav}>
+              Contact
+            </Link>
+          </li>
         </div>
         <li className="search-icon">
           <input type="search" placeholder="Search" />
           <label className="icon">
-            <FaSearch /> 
+            <FaSearch />
           </label>
         </li>
       </ul>
