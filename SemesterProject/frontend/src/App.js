@@ -1,12 +1,16 @@
 import './App.css';
 import Header from './components/layout/Header/Header';
+// Import Bootstrap CSS in your index.js or App.js file
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import webfont from 'webfontloader';
 import React from 'react';
 import Footer from './components/layout/Footer/Footer';
 import LogInSignUp from './components/user/loginsignup';
 import Home from "./components/Home/Home.js"
-
+import Loader from './components/layout/loader/Loader.js';
+import ProductDetails from './components/Home/Product/ProductDetails.js';
 
 function App() {
   React.useEffect(() => {
@@ -23,11 +27,16 @@ function App() {
 
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Add more routes as needed */}
+        <Route exact path="/" element={<Home />} />
+        <Route exact  path="/product/:id" element={<ProductDetails />} />
+        
+       
       </Routes>
       <Footer />
     </Router>
+    
+   
+    
   );
 }
 

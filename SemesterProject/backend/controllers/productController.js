@@ -17,9 +17,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 //get all products
-exports.getAllproducts =catchAsyncErrors( async (req, res) => {
-const resultPerPage=5;
-const productCount=await Product.countDocuments()
+exports.getAllproducts =catchAsyncErrors( async (req, res,next) => {
+  
+const resultPerPage=8;
+const productsCount=await Product.countDocuments()
 const apifeature=new Apifeatures(Product.find(), req.query)
 .search().filter().pagination(resultPerPage)
 
@@ -27,7 +28,7 @@ const apifeature=new Apifeatures(Product.find(), req.query)
   res.status(200).json({
     status: "success",
     products,
-    productCount,
+    productsCount,
   });
 })
 //update product admin
@@ -93,7 +94,7 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({
     success: true,
     product,
-    productCount,
+    
   });
 });
 //create new review and update the review

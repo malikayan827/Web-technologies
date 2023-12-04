@@ -1,0 +1,8 @@
+.ProductDetails{
+    width : 100vw;
+    max-width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    padding: 6vmax;
+}
