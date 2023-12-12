@@ -4,7 +4,7 @@ import './product.css';
 
 import ReactStars from 'react-rating-stars-component';
 
-const Product = ({ product }) => {
+const ProductCard = ({ product }) => {
   const [rating, setRating] = useState(2.5);
 
   const options = {
@@ -30,4 +30,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

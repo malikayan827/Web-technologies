@@ -3,12 +3,16 @@ import Carousel from "react-bootstrap/Carousel";
 import "./ProductDetails.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getProductDetails } from "../../../actions/productActions";
+import { clearError, getProductDetails } from "../../../actions/productActions";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ReactStars from 'react-rating-stars-component';
+import ReviewCard from "./ReviewCard.js";
+import Loader from "..//..//layout//loader//Loader.js";
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -29,9 +33,18 @@ const ProductDetails = () => {
     isHalf: true,
     onChange: (newRating) => setRating(newRating),
   };
+  
+  useEffect(() => {
+    if(error){
+      toast.error(error);
+      dispatch(clearError())
+    }
+    dispatch(getProductDetails);
+  }, [dispatch,error]);
 
   return (
     <Fragment>
+    {loading ? (<Loader/>):(<Fragment>
       <div className="ProductDetails">
         <div>
           <Carousel>
@@ -47,10 +60,7 @@ const ProductDetails = () => {
           </Carousel>
         </div>
         <div>
-          <div className="detailsBlock-1">
-            <h2>{product.name}</h2>
-            <p>Product # {product._id}</p>
-          </div>
+          
           <div>
             <div className="detailsBlock-1">
               <h2>{product.name}</h2>
@@ -61,16 +71,16 @@ const ProductDetails = () => {
               <span>({product.numOfReviews} Reviews)</span>
             </div>
             <div className="detailsBlock-3">
-              <h1>{`Rs $ {product.price}`}</h1>
-              <div className="detailsBlock-3.1">
-              <div className="detailsBlock-3.1.1">
+              <h1>{`Rs  ${product.price}`}</h1>
+              <div className="detailsBlock-3-1">
+              <div className="detailsBlock-3-1-1">
                 <button>-</button>
-                <input type="number" value="1" />
+                <input readOnly type="number" value={quantity} />
                 <button>+</button>
 
                 
                 </div>{" "}
-                <button>Add to Cart</button>
+                <button >Add to Cart</button>
 
               </div>
               <p>
@@ -89,6 +99,14 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <h3 className="reviewsHeading">
+        Reviews 
+      </h3>
+      {product.reviews && product.reviews[0]?(<div className="reviews">
+      {product.reviews.map((review) => <ReviewCard review={review}/>)}
+      </div>):(<p className="noReviews">No reviews</p>)}
+      
+    </Fragment>)}
     </Fragment>
   );
 };

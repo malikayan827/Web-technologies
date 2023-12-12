@@ -11,6 +11,7 @@ import LogInSignUp from './components/user/loginsignup';
 import Home from "./components/Home/Home.js"
 import Loader from './components/layout/loader/Loader.js';
 import ProductDetails from './components/Home/Product/ProductDetails.js';
+import Products from './components/Product/Products.js';
 
 function App() {
   React.useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact  path="/product/:id" element={<ProductDetails />} />
+        <Route exact  path="/products" element={<Products/>} />
         
        
       </Routes>

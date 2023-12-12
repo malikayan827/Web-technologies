@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./home.css";
-import Product from "./Product/Product.js";
+import ProductCard from "./Product/ProductCard.js";
 import product1 from "../../images/product1.jpg";
 import { getProduct } from "../../actions/productActions.js";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Loader from "../layout/loader/Loader.js";
 import { toast } from 'react-toastify';
+import { clearError } from "../../actions/productActions.js";
 
 const Home = () => {
   
@@ -16,6 +17,7 @@ const Home = () => {
   useEffect(() => {
     if(error){
       toast.error(error);
+      dispatch(clearError())
     }
     dispatch(getProduct());
   }, [dispatch,error]);
@@ -35,7 +37,7 @@ const Home = () => {
       <h2 className="homeHeading">FEATURED PRODUCTS</h2>
       <div className="container" id="container">
       {products && products.map(product=>(
-        <Product product={product}/>
+        <ProductCard product={product}/>
       ))}
      
 

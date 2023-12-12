@@ -17,29 +17,29 @@ const Header = () => {
 
   return (
     <nav>
-      <ul className={`navbar  ${isOpen ? "open" : ""}`}>
+      <ul className={`navbar ${isOpen ? "open" : ""}`}>
         <li className="logo">Ecommerce</li>
         <li className="btn" onClick={handleToggleNav}>
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </li>
-        <div className={`items  ${isOpen ? "open items2" : ""}`}>
+        <div className={`items ${isOpen ? "open items2" : ""}`}>
           <li>
-            <Link className="items" href="#" onClick={handleCloseNav}>
+            <Link to="/" className="items" onClick={handleCloseNav}>
               Home
             </Link>
           </li>
           <li>
-            <Link className="items" href="#" onClick={handleCloseNav}>
-              About
+            <Link to="/products" className="items" onClick={handleCloseNav}>
+              Product
             </Link>
           </li>
           <li>
-            <Link className="items" href="#" onClick={handleCloseNav}>
+            <Link to="/services" className="items" onClick={handleCloseNav}>
               Services
             </Link>
           </li>
           <li>
-            <Link className="items" href="#" onClick={handleCloseNav}>
+            <Link to="/contact" className="items" onClick={handleCloseNav}>
               Contact
             </Link>
           </li>
