@@ -3,9 +3,14 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-
+import { useDispatch } from 'react-redux';
+import { setSearchTerm } from "../../../actions/searchActions";
+import { useSelector } from 'react-redux';
+import debounce from 'lodash.debounce';
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const searchTerm = useSelector(state => state.search);
 
   const handleToggleNav = () => {
     setOpen(!isOpen);
@@ -13,6 +18,14 @@ const Header = () => {
 
   const handleCloseNav = () => {
     setOpen(false);
+  };
+
+
+const debouncedSearch = debounce((value) => {
+  dispatch(setSearchTerm(value));
+}, 300);
+  const handleSearch = (e) => {
+    dispatch(setSearchTerm(e.target.value));
   };
 
   return (
@@ -45,7 +58,12 @@ const Header = () => {
           </li>
         </div>
         <li className="search-icon">
-          <input type="search" placeholder="Search" />
+        <input
+          type="search"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
           <label className="icon">
             <FaSearch />
           </label>
