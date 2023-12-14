@@ -1,10 +1,18 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useRef, useState,useEffect } from "react";
 import "./loginsignup.css";
 import { Link } from "react-router-dom";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
+import { useDispatch ,useSelector} from "react-redux";
+import { login,clearErrors,register } from "..//..//actions//userAction";
+import { toast } from 'react-toastify';
+import Loader from "../layout/loader/Loader";
+import { useNavigate } from 'react-router-dom';
+
 const LogInSignUp = () => {
+  const dispatch = useDispatch();
+
   const loginTab = useRef(null);
   const switcherTab = useRef(null);
   const registerTab = useRef(null);
@@ -21,8 +29,9 @@ const LogInSignUp = () => {
   const [imgPrev, setImgPrev] = useState("/Profile.png");
 
 
-  const loginSubmit = () => {
-    console.log("login submit");
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, loginPassword));
   };
   const registerSubmit=(e)=>{
     e.preventDefault();
@@ -32,7 +41,7 @@ const LogInSignUp = () => {
     myform.set("password",password);
     
     myform.set("image",image);
-    console.log("signup form submitted");
+    dispatch(register(myform));
   }
   const registerDataChange = (e) => {
     if (e.target.name === "image") {
@@ -65,9 +74,22 @@ const LogInSignUp = () => {
       loginTab.current.classList.add("shiftToLeft");
     }
   };
+  const navigate = useNavigate();
+  const {loading,error,isAuthenticated}=useSelector(state=>state.user)
+  useEffect(() => {
+    if(error){
+      toast.error(error);
+      dispatch(clearErrors())
+    }
+    if(isAuthenticated){
+      navigate("/account")
+    }
+    
+  }, [dispatch,error]);
 
   return (
     <Fragment>
+      {loading ? <Loader/> :(<Fragment>
       <div className="LoginSignUpContainer">
         <div className="LoginSignUpBox">
           <div>
@@ -156,6 +178,8 @@ const LogInSignUp = () => {
           </form>
         </div>
       </div>
+    </Fragment>)
+        }
     </Fragment>
   );
 };

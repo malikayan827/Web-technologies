@@ -8,19 +8,24 @@ const Email=require('../utils/Email');
 const nodeMailer = require('nodemailer');
 const generateOTP = require('../utils/otp');
 const crypto=require('crypto');
+var cloudinary = require('cloudinary');
 
 
 //register a user
 exports.registerUser = catchAsyncErrors( async(req, res, next) => {
-   
+    const mycloud=await cloudinary.v2.uploader.upload(req.body.avatar,{
+        folder:'avatars',
+        width:150,
+        crop:'scale'
+    })
     const{name,email,password}=req.body;
     const user=await User.create({
         name,
         email,
         password,
         avatar:{
-            public_id:'this is a sample id',
-            url:'profilepic'
+            public_id:mycloud.public_id,
+            url:mycloud.secure_url
         }
     })
     sendToken(user,201,res);
