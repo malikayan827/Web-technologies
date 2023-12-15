@@ -22,7 +22,7 @@ const userSchema=new mongoose.Schema({
         minlength:[8,"Password cannot be less than 6 characters"],
         select:false
     },
-    avatar:{
+    image:{
         public_id:{
             type:String,
             required:true

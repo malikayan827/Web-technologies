@@ -12,34 +12,38 @@ import Home from "./components/Home/Home.js"
 import Loader from './components/layout/loader/Loader.js';
 import ProductDetails from './components/Home/Product/ProductDetails.js';
 import Products from './components/Product/Products.js';
-
+import store from './store';
+import { loadUser } from './actions/userAction.js';
+import UserOptions from './components/layout/Header/UserOptions.js';
+import { useSelector } from 'react-redux';
 function App() {
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   React.useEffect(() => {
     webfont.load({
       google: {
         families: ["Chilanka","Droid Sans",'Roboto', 'sans-serif']
       }
     });
+    store.dispatch(loadUser());
   }, []);
 
   return (
     <Router>
-      
-
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact  path="/product/:id" element={<ProductDetails />} />
-        <Route exact  path="/products" element={<Products/>} />
-        <Route exact  path="/login-register" element={<LogInSignUp/>} />
-        
-       
+        {isAuthenticated && (
+          <Route
+            path="/products"
+            element={<UserOptions user={user} />}
+          />
+        )}
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/login-register" element={<LogInSignUp />} />
       </Routes>
       <Footer />
     </Router>
-    
-   
-    
   );
 }
 

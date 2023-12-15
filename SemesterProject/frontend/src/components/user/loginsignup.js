@@ -18,6 +18,7 @@ const LogInSignUp = () => {
   const registerTab = useRef(null);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
   const [user, setUser] = useState({  
     name: "",
     email: "",
@@ -32,6 +33,7 @@ const LogInSignUp = () => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+    
   };
   const registerSubmit=(e)=>{
     e.preventDefault();
@@ -42,6 +44,9 @@ const LogInSignUp = () => {
     
     myform.set("image",image);
     dispatch(register(myform));
+    
+    
+
   }
   const registerDataChange = (e) => {
     if (e.target.name === "image") {
