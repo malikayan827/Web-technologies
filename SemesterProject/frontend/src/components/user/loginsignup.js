@@ -9,6 +9,8 @@ import { login,clearErrors,register } from "..//..//actions//userAction";
 import { toast } from 'react-toastify';
 import Loader from "../layout/loader/Loader";
 import { useNavigate } from 'react-router-dom';
+import Header from "../layout/Header/Header";
+import Footer from "../layout/Footer/Footer";
 
 const LogInSignUp = () => {
   const dispatch = useDispatch();
@@ -94,7 +96,7 @@ const LogInSignUp = () => {
 
   return (
     <Fragment>
-      {loading ? <Loader/> :(<Fragment>
+        {loading ? <Loader/> :(<Fragment>
       <div className="LoginSignUpContainer">
         <div className="LoginSignUpBox">
           <div>

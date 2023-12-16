@@ -48,6 +48,7 @@ const UserOptions = ({user}) => {
   return (
     <Fragment>
     <SpeedDial
+    className='speedDial'
        ariaLabel="SpeedDial basic example"
        onClose={()=>setOpen(false)}
          onOpen={()=>setOpen(true)}
@@ -63,6 +64,7 @@ const UserOptions = ({user}) => {
       > 
         {options.map((item)=>(
             <SpeedDialAction
+            key={item.name}
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.function}

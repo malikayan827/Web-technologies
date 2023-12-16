@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 231, 231);
-    position: fixed;
+    /* background-color: rgb(231, 231, 231); */
+    /* position: fixed; */
     top: 0%;
     left: 0;
 
@@ -18,7 +18,10 @@
     width: 25vw;
     height: 70vh;
     box-sizing: border-box;
+    border-radius:5%;
     overflow: hidden;
+    border-style: solid;
+    padding-top: 5px;
   }
   .login_signUp_toggle {
     display: flex;
