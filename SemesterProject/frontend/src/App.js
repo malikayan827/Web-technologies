@@ -19,6 +19,10 @@ import { useSelector } from "react-redux";
 import Profile from "./components/user/Porfile.js";
 import ProtectedRoute from "./components/route/ProtectedRoute.js";
 import { Navigate } from "react-router-dom";
+import UpdateProfile from "./components/user/UpdateProfile.js";
+import UpdatePassword from "./components/user/UpdatePassword.js";
+import ForgotPassword from "./components/user/ForgotPassword.js";
+import ResetPassword from "./components/user/ResetPassword.js";
 function App() {
   const { user, isAuthenticated,loading} = useSelector((state) => state.user);
   React.useEffect(() => {
@@ -40,15 +44,28 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/products" element={<Products />} />
         <Route path="/login-register" element={<LogInSignUp />} />
+        <Route  path="/password/forgot" element={<ForgotPassword />}/>
+        <Route  path="/password/reset/:token" element={<ResetPassword />}/>
+
       {/* chapiaaan */}
         {loading ? (<Route  path="/account" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/account" element={<Profile />}/>)}
         {!isAuthenticated && <Route path="/account" element={<LogInSignUp />} />}
+
       
         {/* <Route exact path="/" element={<ProtectedRoute />}>
           <Route exact path="/account" element={<Profile />} />
         </Route> */}
+        {/*update profile */}
+        {loading ? (<Route  path="/me/update" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/me/update" element={<UpdateProfile />}/>)}
+      {/*update password */}
+      {loading ? (<Route  path="/password/update" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/password/update" element={<UpdatePassword />}/>)}
+
       </Routes>
+      
+
       <Footer />
     </Router>
   );
