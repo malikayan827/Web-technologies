@@ -10,13 +10,14 @@ import ReactStars from 'react-rating-stars-component';
 import ReviewCard from "./ReviewCard.js";
 import Loader from "..//..//layout//loader//Loader.js";
 import { toast } from 'react-toastify';
+import { addItemToCart } from "../../../actions/cartActions.js";
 
 const ProductDetails = () => {
-  const [quantity, setQuantity] = useState(1);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-
+ 
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id, navigate]);
@@ -33,6 +34,24 @@ const ProductDetails = () => {
     isHalf: true,
     onChange: (newRating) => setRating(newRating),
   };
+  const [quantity, setQuantity] = useState(1);
+  const increaseQuantity = () => {
+    if(product.stock<=quantity) return;
+      const qty=quantity+1;
+      setQuantity(qty);
+    };
+  
+    const decreaseQuantity = () => {
+      if (quantity > 1) {
+        const qty=quantity-1;
+        setQuantity(qty);
+      }
+    };
+    const addToCartHandler=()=>{
+      dispatch(addItemToCart(id,quantity));
+      toast.success('Item added to cart');
+      // navigate('/cart')
+    }
   
   useEffect(() => {
     if(error){
@@ -74,13 +93,13 @@ const ProductDetails = () => {
               <h1>{`Rs  ${product.price}`}</h1>
               <div className="detailsBlock-3-1">
               <div className="detailsBlock-3-1-1">
-                <button>-</button>
+                <button onClick={decreaseQuantity}>-</button>
                 <input readOnly type="number" value={quantity} />
-                <button>+</button>
+                <button onClick={increaseQuantity}>+</button>
 
                 
                 </div>{" "}
-                <button >Add to Cart</button>
+                <button onClick={addToCartHandler}>Add to Cart</button>
 
               </div>
               <p>

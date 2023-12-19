@@ -22,6 +22,9 @@ import {
   FORGOT_PASSWORD_REQUEST,
   FORGOT_PASSWORD_FAIL,
   FORGOT_PASSWORD_SUCCESS,
+  NEW_PASSWORD_REQUEST,
+  NEW_PASSWORD_SUCCESS,
+  NEW_PASSWORD_FAIL,
 
   
 } from "../Constants/userConstants";
@@ -142,6 +145,7 @@ export const profileReducer = (state = {}, action) => {
 export const forgotReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGOT_PASSWORD_REQUEST:
+    case NEW_PASSWORD_REQUEST:
       return {
         ...state,
         loading: true,
@@ -154,7 +158,15 @@ export const forgotReducer = (state = {}, action) => {
         message: action.payload,
       };
 
+    case NEW_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        success: action.payload,
+      };
+
     case FORGOT_PASSWORD_FAIL:
+    case NEW_PASSWORD_FAIL:
       return {
         ...state,
         loading: false,
@@ -171,3 +183,4 @@ export const forgotReducer = (state = {}, action) => {
       return state;
   }
 };
+

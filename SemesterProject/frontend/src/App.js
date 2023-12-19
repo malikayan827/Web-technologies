@@ -23,6 +23,7 @@ import UpdateProfile from "./components/user/UpdateProfile.js";
 import UpdatePassword from "./components/user/UpdatePassword.js";
 import ForgotPassword from "./components/user/ForgotPassword.js";
 import ResetPassword from "./components/user/ResetPassword.js";
+import Cart from "./components/Cart/Cart.js";
 function App() {
   const { user, isAuthenticated,loading} = useSelector((state) => state.user);
   React.useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/login-register" element={<LogInSignUp />} />
         <Route  path="/password/forgot" element={<ForgotPassword />}/>
         <Route  path="/password/reset/:token" element={<ResetPassword />}/>
+        <Route path="/cart" element={<Cart />}/>
 
       {/* chapiaaan */}
         {loading ? (<Route  path="/account" element={<Loader />}/>
