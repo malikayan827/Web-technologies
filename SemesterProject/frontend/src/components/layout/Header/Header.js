@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSearch, FaBars ,FaUser} from "react-icons/fa";
+import { FaSearch, FaBars ,FaUser,FaShoppingCart } from "react-icons/fa";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
 import "./Header.css";
@@ -59,6 +59,11 @@ const debouncedSearch = debounce((value) => {
           <li>
             <Link to="/login-register" className="items" onClick={handleCloseNav}>
               <FaUser />
+            </Link>
+          </li>
+          <li>
+            <Link to="/Cart" className="items" onClick={handleCloseNav}>
+              <FaShoppingCart />
             </Link>
           </li>
         </div>
