@@ -32,8 +32,8 @@ const navigate = useNavigate();
   };
 
   const checkoutHandler = () => {
-  // navigate("/login?redirect=shipping");
-  console.log("checkoutHandler");
+  navigate("/shipping");
+ 
   };
 
   return (

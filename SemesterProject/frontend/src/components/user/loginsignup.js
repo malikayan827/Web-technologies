@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from "../layout/Header/Header";
 import Footer from "../layout/Footer/Footer";
 
-const LogInSignUp = () => {
+const LogInSignUp = (location) => {
   const dispatch = useDispatch();
 
   const loginTab = useRef(null);
@@ -83,6 +83,7 @@ const LogInSignUp = () => {
   };
   const navigate = useNavigate();
   const {loading,error,isAuthenticated}=useSelector(state=>state.user)
+  // const redirect=location.search?location.search.split("=")[1]:"/account"
   useEffect(() => {
     if(error){
       toast.error(error);
@@ -92,7 +93,7 @@ const LogInSignUp = () => {
       navigate("/account")
     }
     
-  }, [dispatch,error]);
+  }, [dispatch,error,isAuthenticated]);
 
   return (
     <Fragment>

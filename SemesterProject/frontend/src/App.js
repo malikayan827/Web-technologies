@@ -24,6 +24,7 @@ import UpdatePassword from "./components/user/UpdatePassword.js";
 import ForgotPassword from "./components/user/ForgotPassword.js";
 import ResetPassword from "./components/user/ResetPassword.js";
 import Cart from "./components/layout/Cart/Cart.js";
+import Shipping from "./components/layout/Cart/Shipping.js";
 
 function App() {
   const { user, isAuthenticated,loading} = useSelector((state) => state.user);
@@ -66,6 +67,9 @@ function App() {
       {/*update password */}
       {loading ? (<Route  path="/password/update" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/password/update" element={<UpdatePassword />}/>)}
+      {/*Shipping*/}
+      {loading ? (<Route  path="/shipping" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/shipping" element={<Shipping />}/>)}
 
       </Routes>
       
