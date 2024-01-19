@@ -39,7 +39,7 @@ const Shipping = () => {
    
    <Fragment>
     <MetaData title='Shipping Details'/>
-    <CheckoutSteps activeStep={0}/>
+    <CheckoutSteps activeStep={1}/>
    <div className='shippingContainer'>
     <div className='shippingBox'>
       <h2 className='shippingHeading'>Shipping Info</h2>
