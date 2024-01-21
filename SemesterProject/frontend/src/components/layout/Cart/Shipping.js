@@ -28,9 +28,13 @@ const Shipping = () => {
     const [pinCode,setPinCode]=useState(shippingInfo.pinCode);
     const [phoneNo,setPhoneNo]=useState(shippingInfo.phoneNo);
     const shippingSubmit=(e)=>{
-      // e.preventDefault();
-      // dispatch(saveShippingInfo({address,city,state,country,pinCode,phoneNo}));
-      // navigate('/order/confirm')
+      e.preventDefault();
+      if(phoneNo.length<11 || phoneNo.length>11){
+        toast.error('Phone No should be 10 digits long');
+        return;
+      }
+      dispatch(saveShippingInfo({address,city,state,country,pinCode,phoneNo}));
+      navigate('/order/confirm')
     }
 
 
@@ -39,7 +43,7 @@ const Shipping = () => {
    
    <Fragment>
     <MetaData title='Shipping Details'/>
-    <CheckoutSteps activeStep={1}/>
+    <CheckoutSteps activeStep={0}/>
    <div className='shippingContainer'>
     <div className='shippingBox'>
       <h2 className='shippingHeading'>Shipping Info</h2>

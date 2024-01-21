@@ -25,6 +25,7 @@ import ForgotPassword from "./components/user/ForgotPassword.js";
 import ResetPassword from "./components/user/ResetPassword.js";
 import Cart from "./components/layout/Cart/Cart.js";
 import Shipping from "./components/layout/Cart/Shipping.js";
+import ConfirmOrder from "./components/layout/Cart/ConfirmOrder.js";
 
 function App() {
   const { user, isAuthenticated,loading} = useSelector((state) => state.user);
@@ -50,6 +51,7 @@ function App() {
         <Route  path="/password/forgot" element={<ForgotPassword />}/>
         <Route  path="/password/reset/:token" element={<ResetPassword />}/>
         <Route path="/cart" element={<Cart/>}/>
+
         
 
       {/* chapiaaan */}
@@ -70,6 +72,11 @@ function App() {
       {/*Shipping*/}
       {loading ? (<Route  path="/shipping" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/shipping" element={<Shipping />}/>)}
+ {/*order confirm*/}
+      {loading ? (<Route  path="/order/confirm" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/order/confirm" element={<ConfirmOrder/>}/>)}
+
+
 
       </Routes>
       

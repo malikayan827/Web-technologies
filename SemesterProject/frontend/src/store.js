@@ -5,6 +5,7 @@ import {productReducer,productDetailsReducer} from './/reducers//productReducer'
 import searchReducer from './/reducers//SearchReducer'
 import { profileReducer, userReducer,forgotReducer } from './reducers/userReducer';
 import { cartReducer } from './reducers/cartReducer';
+import { newOrderReducer } from './reducers/orderReducer';
 
 const reducer=combineReducers({
     products:productReducer,
@@ -14,6 +15,7 @@ const reducer=combineReducers({
     profile: profileReducer,
     forgotPassword: forgotReducer,
     cart: cartReducer,
+    newOrder: newOrderReducer,
 
 })
 
