@@ -26,6 +26,9 @@ import ResetPassword from "./components/user/ResetPassword.js";
 import Cart from "./components/layout/Cart/Cart.js";
 import Shipping from "./components/layout/Cart/Shipping.js";
 import ConfirmOrder from "./components/layout/Cart/ConfirmOrder.js";
+import Payment from "./components/layout/Cart/Payment.js";
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const { user, isAuthenticated,loading} = useSelector((state) => state.user);
@@ -75,6 +78,12 @@ function App() {
  {/*order confirm*/}
       {loading ? (<Route  path="/order/confirm" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/order/confirm" element={<ConfirmOrder/>}/>)}
+      {/*payment confirm*/}
+     
+      {loading ? (<Route  path="/process/payment" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/process/payment" element={<Payment/>}/>)}
+      
+
 
 
 
