@@ -27,6 +27,7 @@ import Cart from "./components/layout/Cart/Cart.js";
 import Shipping from "./components/layout/Cart/Shipping.js";
 import ConfirmOrder from "./components/layout/Cart/ConfirmOrder.js";
 import Payment from "./components/layout/Cart/Payment.js";
+import MyOrders from "./components/Orders/MyOrders.js";
 // import { Elements } from "@stripe/react-stripe-js";
 // import { loadStripe } from "@stripe/stripe-js";
 
@@ -82,6 +83,9 @@ function App() {
      
       {loading ? (<Route  path="/process/payment" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/process/payment" element={<Payment/>}/>)}
+
+      {loading ? (<Route  path="/orders" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/orders" element={<MyOrders/>}/>)}
       
 
 
