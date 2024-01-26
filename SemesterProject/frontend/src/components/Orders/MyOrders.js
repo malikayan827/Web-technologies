@@ -19,13 +19,11 @@ const MyOrders = () => {
     const { loading, error, orders } = useSelector((state) => state.myOrders);
     const { user } = useSelector((state) => state.user);
     const columns = [
-        {field:"id",headerName:"Order ID",minWidth:300,flex:1},
-        { field: 'id', headerName: 'ID', width: 300 },
-
-        { field: 'price', headerName: 'Price', width: 150 ,type: 'number'},
-        { field: 'quantity', headerName: 'Quantity', width: 150 ,type: 'number'},
-        { field: 'status', headerName: 'Status', width: 150 },
-        { field: 'actions', headerName: 'Actions', width: 150, renderCell: (params) => {
+        {field:"id",headerName:"Order ID",minwidth:300,flex:1},
+        { field: 'price', headerName: 'Price', minwidth: 150 ,type: 'number',flex:0.3},
+        { field: 'quantity', headerName: 'Quantity', minwidth: 150 ,type: 'number',flex:0.5},
+        { field: 'status', headerName: 'Status', minwidth: 150 ,flex:0.5},
+        { field: 'actions', headerName: 'Actions',type:'number', minwidth: 150, renderCell: (params) => {
             return (
                 <Fragment>
                     <Link to={`/order/${params.row.id}`} className="orderDetailsLink">
@@ -34,8 +32,17 @@ const MyOrders = () => {
                 </Fragment>
             )
         } },
+        
     ]
     const rows = []
+    orders && orders.map((order,index) => {
+        rows.push({
+            id:order._id,
+            price:order.totalPrice,
+            quantity:order.orderItems.length,
+            status:order.orderStatus
+        })
+    })
     useEffect(() => {
         dispatch(myOrders());
         if (error) {
@@ -47,7 +54,7 @@ const MyOrders = () => {
   return <Fragment>
   <metadata title={`${user.name} - Orders`} />
   {loading?(<Loader/>):(
-    <div className="myOrderPage">
+    <div className="myOrdersPage">
     <DataGrid
     rows={rows}
     columns={columns}
@@ -56,7 +63,7 @@ const MyOrders = () => {
     className="myOrdersTable"
     autoHeight/>
     <Typography
-    id="myOrderHeading">
+    id="myOrdersHeading">
         {user.name}'s Orders
     </Typography>
 
