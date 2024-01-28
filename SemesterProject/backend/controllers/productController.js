@@ -99,45 +99,46 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
 });
 //create new review and update the review
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
-  const { rating, comment,productId } = req.body;
-  const review={
-    user:req.user._id,
-    name:req.user.name,
-    rating:Number(rating),
-    comment,
+  const { rating, comment, productId } = req.body;
 
-  }
+  const review = {
+    user: req.user._id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment,
+  };
+
   const product = await Product.findById(productId);
+
   const isReviewed = product.reviews.find(
-    (r) => r.user.toString() === req.user._id.toString()
+    (rev) => rev.user.toString() === req.user._id.toString()
   );
+
   if (isReviewed) {
-    product.reviews.forEach((review) => {
-      if (review.user.toString() === req.user._id.toString()) {
-        review.comment = comment;
-        review.rating = rating;
-      }
+    product.reviews.forEach((rev) => {
+      if (rev.user.toString() === req.user._id.toString())
+        (rev.rating = rating), (rev.comment = comment);
     });
   } else {
     product.reviews.push(review);
     product.numOfReviews = product.reviews.length;
   }
 
-  let avg=0
-  
-  product.reviews.forEach(rev=>{
-    avg=avg+rev.rating
+  let avg = 0;
 
-  }
-    )
-  product.ratings =avg/product.reviews.length;
-      await product.save({validateBeforeSave:false})
+  product.reviews.forEach((rev) => {
+    avg += rev.rating;
+  });
+
+  product.ratings = avg / product.reviews.length;
+
+  await product.save({ validateBeforeSave: false });
+
   res.status(200).json({
     success: true,
   });
-}
+});
 
-);
 //get product reviews
 exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
   const product=await Product.findById(req.query.id);

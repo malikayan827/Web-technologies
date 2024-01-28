@@ -68,6 +68,7 @@
     display: flex;
     align-items: center;
     padding: 1vmax 0;
+    
   }
   
   .detailsBlock-3-1-1 > button {
@@ -78,6 +79,7 @@
     color: white;
     transition: all 0.5s;
     border-radius: 10%;
+    
   }
   
   .detailsBlock-3-1-1 > button:hover {
@@ -88,7 +90,7 @@
   .detailsBlock-3-1-1 > input {
     border: none;
     padding: 0.7vmax;
-    width: 2vmax;
+    width: 3vmax;
     text-align: center;
     outline: none;
     font: 400 0.8vmax "Roboto";

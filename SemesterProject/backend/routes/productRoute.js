@@ -19,7 +19,8 @@ router
 router
 .route('/products/:id').get(getProductDetails)
 ;
-router.route('/review').get(getProductReviews).delete(isAuthenticatedUsers,deleteReview)
+router.route('/review').post(isAuthenticatedUsers,createProductReview)
+router.route('/reviews').get(getProductReviews).delete(isAuthenticatedUsers,deleteReview)
 
 
 module.exports = router;
