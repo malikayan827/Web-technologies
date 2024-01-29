@@ -16,21 +16,24 @@ const UserOptions = ({user}) => {
     const [open, setOpen] = useState(false);
     const dispatch=useDispatch()
     const navigate=useNavigate()
-
-    const options=[
-
-        {icon:<DashboardIcon/>,name:'Dashboard',function:dashboard},
-        {icon:<PersonIcon/>,name:'Profile',function:account},
-        {icon:<ListAltIcon/>,name:'Orders',function:orders},
-        {icon:<ExitToAppIcon/>,name:'Logout',function:Logout}
-
-    ]
+    const optionsAdmin = [
+      { icon: <DashboardIcon />, name: 'Dashboard', func: dashboard },
+      { icon: <PersonIcon />, name: 'Profile', func: account },
+      { icon: <ExitToAppIcon />, name: 'Logout', func: Logout }
+    ];
+    
+    const options = [
+      { icon: <PersonIcon />, name: 'Profile', func: account },
+      { icon: <ListAltIcon />, name: 'Orders', func: orders },
+      { icon: <ExitToAppIcon />, name: 'Logout', func: Logout }
+    ];
    
-    if(user.role==='admin'){
-        options.unshift({icon:<DashboardIcon/>,name:'Dashboard'})
-    }
+    // if(user.role==='admin'){
+    //     options.unshift({icon:<DashboardIcon/>,name:'Dashboard',
+    //   func:dashboard})
+    // }
     function dashboard(){
-       navigate('/dashboard')
+       navigate('/admin/dashboard')
     }
     function orders(){
         navigate('/orders')
@@ -62,15 +65,36 @@ const UserOptions = ({user}) => {
 
             }
       > 
-        {options.map((item)=>(
-            <SpeedDialAction
+        {/* {options.map((item)=>(
+          <SpeedDialAction
             key={item.name}
             icon={item.icon}
             tooltipTitle={item.name}
-            onClick={item.function}
-
-            />
-        ))}
+            onClick={item.func}
+            tooltipOpen={window.innerWidth <= 600 ? true : false}
+          />
+        ))} */}
+        {user.role === 'admin' ? (
+          optionsAdmin.map((item) => (
+        <SpeedDialAction
+          key={item.name}
+          icon={item.icon}
+          tooltipTitle={item.name}
+          onClick={item.func}
+          tooltipOpen={window.innerWidth <= 600 ? true : false}
+        />
+      ))
+    ) : (
+      options.map((item) => (
+        <SpeedDialAction
+          key={item.name}
+          icon={item.icon}
+          tooltipTitle={item.name}
+          onClick={item.func}
+          tooltipOpen={window.innerWidth <= 600 ? true : false}
+        />
+      ))
+    )}
 
 
         
