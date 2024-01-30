@@ -68,7 +68,7 @@ const Dashboard = () => {
       <MetaData title="Dashboard - Admin Panel" />
       <Sidebar />
 
-      <div className="dashboardContainer">
+      {/* <div className="dashboardContainer">
         <Typography component="h1">Dashboard</Typography>
 
         <div className="dashboardSummary">
@@ -100,7 +100,7 @@ const Dashboard = () => {
         <div className="doughnutChart">
           <Doughnut data={doughnutState} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

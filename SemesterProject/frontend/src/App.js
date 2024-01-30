@@ -31,6 +31,7 @@ import MyOrders from "./components/Orders/MyOrders.js";
 
 import OrderDetails from "./components/Orders/OrderDetails.js";
 import Dashboard from "./components/admin/Dashboard.js";
+import Sidebar from "./components/admin/Sidebar.js";
 
 // import { Elements } from "@stripe/react-stripe-js";
 // import { loadStripe } from "@stripe/stripe-js";
