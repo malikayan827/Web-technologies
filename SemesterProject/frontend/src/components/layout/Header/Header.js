@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { FaSearch, FaBars ,FaUser,FaShoppingCart } from "react-icons/fa";
 import { Squash as Hamburger } from "hamburger-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Header.css";
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from "../../../actions/searchActions";
 import { useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 const Header = () => {
+  const navigate = useNavigate();
+  const { user, isAuthenticated,loading} = useSelector((state) => state.user);
   const [isOpen, setOpen] = useState(false);
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.search);
@@ -29,6 +34,13 @@ const debouncedSearch = debounce((value) => {
   const handleSearch = (e) => {
     dispatch(setSearchTerm(e.target.value));
   };
+  useEffect(() => {
+   
+    if(!isAuthenticated){
+      navigate("/login-register")
+    }
+    
+  }, [dispatch,isAuthenticated]);
 
   return (
     <nav>
@@ -63,11 +75,13 @@ const debouncedSearch = debounce((value) => {
               <FaUser />
             </Link>
           </li>
-          <li>
-            <Link to="/Cart" className="items" onClick={handleCloseNav}>
-              <FaShoppingCart />
-            </Link>
-          </li>
+          {isAuthenticated && (
+            <li>
+              <Link to="/Cart" className="items" onClick={handleCloseNav}>
+                <FaShoppingCart />
+              </Link>
+            </li>
+          )}
         </div>
         {/* <li className="search-icon">
         <input

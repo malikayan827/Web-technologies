@@ -1,5 +1,5 @@
 import e from "cors";
-import { ADD_TO_CART,REMOVE_CART_ITEM, SAVE_SHIPPING_INFO } from "../Constants/cartConstant";
+import { ADD_TO_CART,REMOVE_CART_ITEM, SAVE_SHIPPING_INFO,REMOVE_ALL_CART_ITEMS } from "../Constants/cartConstant";
 
 export const cartReducer = (state = {cartItems:[],shippingInfo:{}},action) => {
 
@@ -21,7 +21,13 @@ export const cartReducer = (state = {cartItems:[],shippingInfo:{}},action) => {
         case REMOVE_CART_ITEM:
             return{
                 ...state,
+               
                 cartItems:state.cartItems.filter((x)=>x.product !== action.payload)
+            }
+        case REMOVE_ALL_CART_ITEMS:
+            return{
+                ...state,
+                cartItems:[]
             }
             case SAVE_SHIPPING_INFO:
                 return{

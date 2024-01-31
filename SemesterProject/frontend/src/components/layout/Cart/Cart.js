@@ -1,13 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "./Cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemToCart, removeItemsFromCart } from "..//../../actions/cartActions";
+import { addItemToCart, removeItemsFromCart,removeAllItemsFromCart } from "..//../../actions/cartActions";
 import { Typography } from "@mui/material";
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Cart = () => {
+
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 const navigate = useNavigate();
@@ -35,6 +36,7 @@ const navigate = useNavigate();
   navigate("/shipping");
  
   };
+  
 
   return (
     <Fragment>

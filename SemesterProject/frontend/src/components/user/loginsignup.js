@@ -8,6 +8,7 @@ import { useDispatch ,useSelector} from "react-redux";
 import { login,clearErrors,register } from "..//..//actions//userAction";
 import { toast } from 'react-toastify';
 import Loader from "../layout/loader/Loader";
+import { removeAllItemsFromCart } from "../../actions/cartActions";
 import { useNavigate } from 'react-router-dom';
 import Header from "../layout/Header/Header";
 import Footer from "../layout/Footer/Footer";
@@ -91,6 +92,9 @@ const LogInSignUp = (location) => {
     }
     if(isAuthenticated){
       navigate("/account")
+    }
+    if(!isAuthenticated){
+      dispatch(removeAllItemsFromCart())
     }
     
   }, [dispatch,error,isAuthenticated]);

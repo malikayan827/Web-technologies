@@ -59,7 +59,7 @@ function App() {
         <Route path="/login-register" element={<LogInSignUp />} />
         <Route  path="/password/forgot" element={<ForgotPassword />}/>
         <Route  path="/password/reset/:token" element={<ResetPassword />}/>
-        <Route path="/cart" element={<Cart/>}/>
+        
 
         
 
@@ -67,6 +67,9 @@ function App() {
         {loading ? (<Route  path="/account" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/account" element={<Profile />}/>)}
         {!isAuthenticated && <Route path="/account" element={<LogInSignUp />} />}
+        {/*cart*/}
+        {loading ? (<Route  path="/password/update" element={<Loader />}/>
+      ) : (isAuthenticated && <Route path="/cart" element={<Cart/>}/>)}
 
       
         {/* <Route exact path="/" element={<ProtectedRoute />}>
