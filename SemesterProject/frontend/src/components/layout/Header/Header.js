@@ -13,11 +13,13 @@ const Header = () => {
   const searchTerm = useSelector(state => state.search);
 
   const handleToggleNav = () => {
-    setOpen(!isOpen);
+    const menu = document.querySelector('.navbar');
+    menu.classList.toggle('open');
   };
-
+  
   const handleCloseNav = () => {
-    setOpen(false);
+    const menu = document.querySelector('.navbar');
+    menu.classList.remove('open');
   };
 
 
@@ -35,7 +37,7 @@ const debouncedSearch = debounce((value) => {
         <li className="btn" onClick={handleToggleNav}>
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </li>
-        <div className={`items ${isOpen ? "open items2" : ""}`}>
+        <div className={`items items-mobile ${isOpen ? "open" : ""}`}>
           <li>
             <Link to="/" className="items" onClick={handleCloseNav}>
               Home
@@ -46,7 +48,7 @@ const debouncedSearch = debounce((value) => {
               Product
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/services" className="items" onClick={handleCloseNav}>
               Services
             </Link>
@@ -55,7 +57,7 @@ const debouncedSearch = debounce((value) => {
             <Link to="/contact" className="items" onClick={handleCloseNav}>
               Contact
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/login-register" className="items" onClick={handleCloseNav}>
               <FaUser />
@@ -67,7 +69,7 @@ const debouncedSearch = debounce((value) => {
             </Link>
           </li>
         </div>
-        <li className="search-icon">
+        {/* <li className="search-icon">
         <input
           type="search"
           placeholder="Search"
@@ -77,7 +79,7 @@ const debouncedSearch = debounce((value) => {
           <label className="icon">
             <FaSearch />
           </label>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

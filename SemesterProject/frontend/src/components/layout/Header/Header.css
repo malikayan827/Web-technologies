@@ -82,16 +82,18 @@ nav ul .search-icon .icon span{
 }
 nav ul li.btn{
   font-size: 29px;
-  flex: 1;
+
   padding: 0 40px;
   display: none;
+  color:#ffffff;
+  float: right;
 }
 nav ul li.btn span{
   height: 42px;
   width: 42px;
   text-align: center;
   line-height: 42px;
-  border: 1px solid #151515;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -101,249 +103,39 @@ nav ul li.btn span.show:before{
 .items{
   color: #f2f2f2;
 }
-@media screen and (max-width: 1052px) {
-  nav{
-    padding: 10px 40px 10px 0px;
-  }
-  nav ul li.logo{
-    display: none;
-  }
-  nav ul div.items{
-    flex: 4;
-  }
-}
-@media screen and (max-width: 800px){
-  
-.open {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #222222;
-  color: white;
-  padding: 20px;
- 
-  transition: 0.5s ease-in-out;
-}
-.open ul{
-display: block;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  color: #f2f2f2;}
-  nav ul div.items{
-    padding: 0 25px;
-    display: inline-flex;
-  }
-  nav ul div.items a{
-    text-decoration: none;
-    font-size: 18px;
-    padding: 0 12px;
-  }
-  nav ul div.items a:hover{
-    color: black;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    transition: 0.3s;
-  }
-
-
-
-.navbar li {
-  margin-bottom: 10px;
-  display: block;
-}
-  nav ul li.btn{
-    display: block;
-  }
-  nav{
-    z-index: 1;
-    padding: 9px 40px 9px 0;
-  }
-  nav ul div.items{
-   display: none;
-  }
-  nav ul div.items2 {
-    position: relative;
-    z-index: 1;
-    color: white;
-    display: block;
-  }
-  
-  
-}
-
-
 @media (max-width: 768px) {
-  .items {
+  nav ul div.items {
     display: none;
     flex-direction: column;
+    width: 100%;
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    background-color: #222222;
   }
 
-  .items.open {
+  nav ul div.items a {
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    color: #f2f2f2;
+  }
+
+  nav ul.open div.items {
+    display: flex; /* Show the items when the nav is open */
+  }
+
+  nav ul li.logo,
+  nav ul li.btn {
+    display: block; /* Show the logo and toggle button on smaller screens */
+  }
+
+  nav ul .search-icon {
     display: flex;
+    flex: 1;
   }
-  .open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #222222;
-    color: white;
-    padding: 20px;
-   
-    transition: 0.5s ease-in-out;
+
+  nav ul .search-icon input {
+    width: 100%; /* Expand the search input to fill the space */
   }
-  .open ul{
-  display: block;
-    list-style: none;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    color: #f2f2f2;}
-    nav ul div.items{
-      padding: 0 25px;
-      display: inline-flex;
-    }
-    nav ul div.items a{
-      text-decoration: none;
-      font-size: 18px;
-      padding: 0 12px;
-    }
-    nav ul div.items a:hover{
-      color: black;
-      background-color: white;
-      border-radius: 5px;
-      padding: 10px;
-      transition: 0.3s;
-    }
-  
-  
-  
-  .navbar li {
-    margin-bottom: 10px;
-    display: block;
-  }
-    nav ul li.btn{
-      display: block;
-    }
-    nav{
-      z-index: 1;
-      padding: 9px 40px 9px 0;
-    }
-    nav ul div.items{
-     display: none;
-    }
-    nav ul div.items2 {
-      position: relative;
-      z-index: 1;
-      color: white;
-      display: block;
-    }
-    
-}
-@media screen and (max-width: 405px) {
-  .open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #222222;
-    color: white;
-    padding: 20px;
-   
-    transition: 0.5s ease-in-out;
-  }
-  .open ul{
-  display: block;
-    list-style: none;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    color: #f2f2f2;}
-    nav ul div.items{
-      padding: 0 25px;
-      display: inline-flex;
-    }
-    nav ul div.items a{
-      text-decoration: none;
-      font-size: 18px;
-      padding: 0 12px;
-    }
-    nav ul div.items a:hover{
-      color: black;
-      background-color: white;
-      border-radius: 5px;
-      padding: 10px;
-      transition: 0.3s;
-    }
-  
-  
-  
-  .navbar li {
-    margin-bottom: 10px;
-    display: block;
-  }
-    nav ul li.btn{
-      display: block;
-    }
-    nav{
-      z-index: 1;
-      padding: 9px 40px 9px 0;
-    }
-    nav ul div.items{
-     display: none;
-    }
-    nav ul div.items2 {
-      position: relative;
-      z-index: 1;
-      color: white;
-      display: block;
-    }
-    
-  nav ul{
-    flex-wrap: nowrap;
-  }
-  nav ul li.search{
-    width: 50vmin;
-  }
-  nav ul li input{
-    width: 40vmin;
-  }
-  nav ul li .search-icon{
-    width: 10vmin;
-  }
-}
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  padding: 0 40px;
-  z-index: -2;
-}
-.content .text{
-  font-size: 40px;
-  font-weight: 800;
-  padding: 5px 0;
-  color: #202020;
-}
-.content .p{
-  font-size: 28px;
-  font-weight: 600;
-  color: #202020;
 }

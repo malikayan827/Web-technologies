@@ -95,8 +95,8 @@ function App() {
       {loading ? (<Route  path="/order/:id" element={<Loader />}/>
       ) : (isAuthenticated && <Route  path="/order/:id" element={<OrderDetails/>}/>)}
 
-      {loading ? (<Route  path="/admin/dashboard" element={<Loader />}/>
-      ) : (isAuthenticated && <Route  path="/admin/dashboard" element={<Dashboard/>}/>)}
+      {/* {loading ? (<Route  path="/admin/dashboard" element={<Loader />}/>
+      ) : (isAuthenticated && <Route  path="/admin/dashboard" element={<Dashboard/>}/>)} */}
 
 
       
